@@ -17,12 +17,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a href="{% url main:home %}" class="brand">Apple</a>
+                    <a href="{% url main:index %}" class="brand">Apple</a>
 
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="{% block active_1 %}{% endblock %}"><a href="{% url main:home %}"><i class="icon-home icon-white"></i>XXX</a></li>
-                            <li class="{% block active_2 %}{% endblock %}"><a href="{% url main:home %}"><i class="icon-user icon-white"></i>ZZZ</a></li>
+                            <li class="{% block active_1 %}{% endblock %}"><a href="{% url main:index %}"><i class="icon-home icon-white"></i>XXX</a></li>
+                            <li class="{% block active_2 %}{% endblock %}"><a href="{% url main:index %}"><i class="icon-user icon-white"></i>ZZZ</a></li>
                         </ul>
                         <ul class="nav pull-right">
                             {% if user.is_authenticated %}

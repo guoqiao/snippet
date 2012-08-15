@@ -1,7 +1,16 @@
 # Django settings for main project.
+import os, sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+#PROJECT_ROOT = os.path.normpath(os.path.join(HERE, '../'))
+PROJECT_ROOT = HERE
+APPS_ROOT = os.path.join(PROJECT_ROOT, 'apps')
+
+sys.path.insert(0, PROJECT_ROOT)
+sys.path.insert(0, APPS_ROOT)
 
 ADMINS = (
     ('Guo Qiao', 'guoqiao@gmail.com'),
@@ -72,6 +81,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -100,12 +110,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'main.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'templates/'),
 )
 
 INSTALLED_APPS = (
@@ -119,6 +130,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+
+    'accounts',
+    'main',
 )
 
 # A sample logging configuration. The only tangible logging

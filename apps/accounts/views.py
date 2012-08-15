@@ -27,4 +27,4 @@ def register(request):
 def logout_user(request):
     logout(request)
     messages.success(request, u'你已经成功退出.')
-    return redirect('feeds:index')
+    return redirect('main:index')
