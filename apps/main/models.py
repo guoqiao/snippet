@@ -20,7 +20,7 @@ class Snippet(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
-class BaseGenericModel(models.Modle):
+class BaseGenericModel(models.Model):
     content_type   = models.ForeignKey(ContentType)
     object_id      = models.PositiveIntegerField()
     content_object = generic.GenericForeignKey("content_type", "object_id")
