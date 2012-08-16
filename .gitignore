@@ -1,4 +1,8 @@
 *.log
 *.pot
 *.pyc
+*.swp
+*.db
+*~
 local_settings.py
+ENV

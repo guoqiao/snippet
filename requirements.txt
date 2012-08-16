@@ -1,0 +1,10 @@
+Django
+django-wsgiserver
+django-taggit
+
+#celery
+#django-celery
+#django-kombu
+
+#python-ldap
+#django-auth-ldap
