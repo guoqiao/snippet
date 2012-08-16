@@ -20,11 +20,11 @@
     </span>
 </div>
 <div>
-Similar snippets:
+<h3>Similar snippets:</h3>
 <ul class="unstyled">
     {% for x in obj.tags.similar_objects %}
     <li>
-    <a href="{% url main:detail x.pk %}"></a>
+    <a href="{% url main:detail x.pk %}">{{ x.title }}</a>
     </li>
     {% endfor %}
 </ul>
