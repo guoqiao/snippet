@@ -11,10 +11,22 @@
 <pre>
     {{ obj.desc }}
 </pre>
-Tags:
-<span class='tag'>
-{% for tag in obj.tags.all %}
-    {{ tag.name }}
-{% endfor %}
-</span>
+<div>
+    Tags:
+    <span class='tag'>
+    {% for tag in obj.tags.all %}
+        {{ tag.name }}
+    {% endfor %}
+    </span>
+</div>
+<div>
+Similar snippets:
+<ul class="unstyled">
+    {% for x in obj.tags.similar_objects %}
+    <li>
+    <a href="{% url main:detail x.pk %}"></a>
+    </li>
+    {% endfor %}
+</ul>
+</div>
 {% endblock %}
