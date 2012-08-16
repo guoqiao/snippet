@@ -2,6 +2,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 from django.contrib import admin
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes import generic
 
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
@@ -18,9 +20,18 @@ class Snippet(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
 
-class Comment(models.Model):
+class BaseGenericModel(models.Modle):
+    content_type   = models.ForeignKey(ContentType)
+    object_id      = models.PositiveIntegerField()
+    content_object = generic.GenericForeignKey("content_type", "object_id")
+
+    class Meta:
+        abstract = True
+
+class Comment(BaseGenericModel):
     text = models.TextField()
-    snippet = models.ForeignKey(Snippet)
+    removed = models.BooleanField(default=False)
+
     user = models.ForeignKey(User)
     create = models.DateTimeField(auto_now_add=True)
 
@@ -37,9 +48,9 @@ SCORE_VALUE_CHOICES = (
     ('5',5),
 )
 
-class Score(models.Model):
+class Score(BaseGenericModel):
     value = models.IntegerField(choices=SCORE_VALUE_CHOICES)
-    snippet = models.ForeignKey(Snippet)
+
     user = models.ForeignKey(User)
     create = models.DateTimeField(auto_now_add=True)
 
