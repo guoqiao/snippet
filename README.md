@@ -1,4 +1,4 @@
-django-init
+snippet
 ===========
 
-django init project
+code snippets share, comment, search and backup
