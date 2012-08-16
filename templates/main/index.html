@@ -3,13 +3,17 @@
 {% block content %}
 <ul class="unstyled">
     {% for obj in objs %}
-    <li>
+    <li class='well'>
     <h2>
         <a href="{% url main:detail obj.pk %}">{{ obj.title }}</a>
     </h2>
-    <pre>
-        <code>{{ obj.code }}</code>
-    </pre>
+    <p>{{ obj.user }}, {{ obj.create }}</p>
+    Tags:
+    <span class='tag'>
+    {% for tag in obj.tags.all %}
+        {{ tag.name }}
+    {% endfor %}
+    </span>
     </li>
     {% endfor %}
 </ul>
