@@ -161,3 +161,7 @@ LOGGING = {
 }
 
 LOGIN_REDIRECT_URL = '/'
+
+FIXTURE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'fixtures/'),
+)
