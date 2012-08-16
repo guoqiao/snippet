@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form class="form" action="" method="post">
+    {% csrf_token %}
+    {{form}}
+    <label class="submit_btn">
+        <button class="btn btn-primary" name="commit" tabindex="3" type="submit">保存</button>
+        <a href="{% url main:index %}" class="btn">取消</a>
+        <input type="hidden" name="next" value="{{ next }}">
+    </label>
+</form>
+{% endblock %}
