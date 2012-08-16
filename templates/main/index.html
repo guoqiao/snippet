@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Welcome!</h2>
+<ul class="unstyled">
+    {% for obj in objs %}
+    <li>
+    <h2>
+        <a href="{% url main:detail obj.pk %}">{{ obj.title }}</a>
+    </h2>
+    <pre>
+        <code>{{ obj.code }}</code>
+    </pre>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
