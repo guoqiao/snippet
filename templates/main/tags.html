@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load taggit_extras %}
+
+{% block content %}
+{% get_tagcloud as tagcloud %}
+<div>
+    {% for tag in tagcloud %}
+    <a href="{% url main:tag tag.slug %}">
+        <font size={{tag.weight|floatformat:0}}>{{tag.name}}</font>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

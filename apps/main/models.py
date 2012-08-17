@@ -6,16 +6,12 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
 
 from taggit.managers import TaggableManager
-from taggit.models import TaggedItemBase
-
-class TaggedSnippet(TaggedItemBase):
-    content_object = models.ForeignKey('Snippet')
 
 class Snippet(models.Model):
     title = models.CharField(max_length=128)
     code = models.TextField()
     desc = models.TextField()
-    tags = TaggableManager(blank=True, through=TaggedSnippet)
+    tags = TaggableManager(blank=True)
     user = models.ForeignKey(User)
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)

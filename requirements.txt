@@ -1,6 +1,8 @@
 Django
 django-wsgiserver
+
 django-taggit
+git+https://github.com/feuervogel/django-taggit-templatetags.git
 
 #celery
 #django-celery
